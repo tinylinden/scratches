@@ -1,0 +1,3 @@
+# Notes for future me
+
+To be described...
