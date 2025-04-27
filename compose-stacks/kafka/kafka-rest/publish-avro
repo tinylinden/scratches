@@ -10,4 +10,4 @@ cat key.avsc value.avsc value.json |
         --header 'Content-Type: application/vnd.kafka.avro.v2+json' \
         --header 'Accept: application/vnd.kafka.v2+json' \
         --data-binary @- \
-        http://localhost:8082/topics/scratch-avro
+        http://localhost:8082/topics/avro.pedantic-shamir

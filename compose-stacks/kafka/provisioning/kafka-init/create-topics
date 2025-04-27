@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cub kafka-ready -b kafka:29092 1 20 &&
+    kafka-topics --create --if-not-exists --zookeeper zookeeper:2181 --partitions 4 --replication-factor 1 --topic avro.pedantic-shamir

@@ -2,8 +2,6 @@ services:
   zookeeper:
     container_name: zookeeper
     image: confluentinc/cp-zookeeper:${CP_VERSION}
-    ports:
-      - '2181:2181'
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
   kafka:
@@ -19,6 +17,14 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_CONFLUENT_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+  kafka-init:
+    container_name: kafka-init
+    image: confluentinc/cp-kafka:${CP_VERSION}
+    depends_on:
+      - kafka
+    volumes:
+      - ./provisioning/kafka-init:/tmp/kafka-init
+    command: '/tmp/kafka-init/create-topics'
   schema-registry:
     container_name: schema-registry
     image: confluentinc/cp-schema-registry:${CP_VERSION}
@@ -51,4 +57,4 @@ services:
     environment:
       DYNAMIC_CONFIG_ENABLED: 'true'
     volumes:
-      - ./kafka-ui/config.yaml:/etc/kafkaui/dynamic_config.yaml
+      - ./provisioning/kafka-ui/config.yaml:/etc/kafkaui/dynamic_config.yaml
