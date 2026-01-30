@@ -1,4 +1,4 @@
-# compose-stacks :: kafka
+# compose-stacks :: mockserver
 
 ## Notes for future me
 
