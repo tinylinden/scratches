@@ -1,0 +1,17 @@
+[
+    {
+        "id": "ping",
+        "httpRequest": {
+            "method": "GET",
+            "path": "/ping"
+        },
+        "httpResponse": {
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+                "ping": "pong"
+            }
+        }
+    }
+]

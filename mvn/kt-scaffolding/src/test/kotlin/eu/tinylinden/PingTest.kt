@@ -8,6 +8,6 @@ internal class PingTest {
     @Test
     fun `should answer pong to every ping`() {
         // expect
-        assertThat(ping()).isEqualTo("pong")
+        assertThat(ping()).isEqualTo("pong!")
     }
 }

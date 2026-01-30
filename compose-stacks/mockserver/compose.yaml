@@ -1,0 +1,12 @@
+services:
+  mockserver:
+    image: mockserver/mockserver
+    ports:
+      - '1080:1080'
+    environment:
+      MOCKSERVER_ENABLE_CORS_FOR_ALL_RESPONSES: 'true'
+      MOCKSERVER_CORS_ALLOW_ORIGIN: '*'
+      MOCKSERVER_WATCH_INITIALIZATION_JSON: 'true'
+      MOCKSERVER_INITIALIZATION_JSON_PATH: '/expectations/*.json'
+    volumes:
+      - ./expectations:/expectations
