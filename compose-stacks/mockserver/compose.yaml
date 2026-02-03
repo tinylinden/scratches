@@ -1,5 +1,6 @@
 services:
   mockserver:
+    platform: linux/amd64
     image: mockserver/mockserver
     ports:
       - '1080:1080'
