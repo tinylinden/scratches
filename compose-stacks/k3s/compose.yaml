@@ -1,0 +1,10 @@
+services:
+  k3s-node-0:
+    container_name: k3s-node-0
+    image: rancher/k3s:${K3S_VERSION}
+    hostname: k3s-node-0
+    privileged: true
+    ports:
+      - '6443:6443'
+    command: 'server'
+
